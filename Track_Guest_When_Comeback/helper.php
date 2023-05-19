@@ -3,6 +3,7 @@
 include_once "config.php";
 session_start();
 
+
 $sessionId = session_id();
 $hashedSessionId = hash('sha256', $sessionId);
 $shortSessionId = substr($sessionId, 0, 16);
