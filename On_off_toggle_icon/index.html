@@ -8,10 +8,24 @@
 <body>
     <div class=" container">
         <div class="toggle">
-            <div class="toggle-button"></div>
+            <div class="toggle-button" onclick="Animatedtoggle()"></div>
         </div>
         <div class="text">OFF</div>
     </div>
+
+    <script>
+        let toggle = document.querySelector(".toggle");
+        let text = document.querySelector(".text");
+        function Animatedtoggle() {
+            toggle.classList.toggle("active");
+            if (toggle.classList.contains("active")) {
+                text.innerHTML = "ON";
+            }
+            else {
+                text.innerHTML = "OFF";
+            }
+        }
+    </script>
 </body>
 
 </html>
