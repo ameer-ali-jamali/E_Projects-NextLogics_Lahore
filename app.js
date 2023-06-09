@@ -3,6 +3,7 @@
 // ignore (,) coma from string
 replace(/\,/g, '')
 
+// ignore any space from string
 replace(/\s/g, '')
 
 // es13 class method
