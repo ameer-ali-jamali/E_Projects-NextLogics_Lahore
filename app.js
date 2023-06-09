@@ -23,3 +23,6 @@ function update() {
     updatePackageInput.value = packageValue;
     console.log(updatePackageInput)
 }
+
+// jquery use multiple events on click
+// $('.text_package_input').on('click mouseleave', calculatePrice);
