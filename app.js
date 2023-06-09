@@ -1,7 +1,11 @@
 // js replace methods
 
+// ignore (,) coma from string
 replace(/\,/g, '')
+
 replace(/\s/g, '')
+
+// es13 class method
 class userInfo {
     name = "ANmol"
     age = "23"
