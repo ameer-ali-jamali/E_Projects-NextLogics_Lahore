@@ -69,7 +69,7 @@ function calculatePrice() {
 
 // MOre relaibke calculation funciton
 function calculatePrice() {
-    console.clear();
+     console.clear();
     var clickedButton = $(this);
     const numeric = new numericalDigit();
     const findStringValue = new findString();
@@ -79,40 +79,38 @@ function calculatePrice() {
     var price = clickedButton.closest('.card').find('.updatePrice');
     var getSmsRate = smsRate.val()
     var getPackage = package.val().toLowerCase().replace(/\s/g, '').replace(/\,/g, '');
-    let formattedPackage = "";
+    let updatePackageValue = "";
     let calculation = "";
+    let toLocaleString = "";
     if (getPackage.match(findStringValue.lakh)) {
-        formattedPackage = getPackage.replace(/lakh/g, numeric.lakh).replace(/\D/g, '');
-        console.log(formattedPackage)
+        updatePackageValue = getPackage.replace(/lakh/g, numeric.lakh).replace(/\D/g, '');
     }
     if (getPackage.match(findStringValue.lac)) {
-        formattedPackage = getPackage.replace(/lac/g, numeric.lakh).replace(/\D/g, '');
-        console.log(formattedPackage)
+        updatePackageValue = getPackage.replace(/lac/g, numeric.lakh).replace(/\D/g, '');
     }
     if (getPackage.match(findStringValue.mil)) {
-        formattedPackage = getPackage.replace(/million/g, numeric.million).replace(/\D/g, '');
-        console.log(formattedPackage)
+        updatePackageValue = getPackage.replace(/million/g, numeric.million).replace(/\D/g, '');
     }
     if (getPackage.match(numeric.thousand)) {
-        let formattedPackage = getPackage.replace(numeric.thousand, ",000")
-        package.val(formattedPackage)
+        toLocaleString = getPackage.replace(numeric.thousand, ",000")
+        package.val(toLocaleString)
     }
     if (getPackage.match(numeric.tenThousand)) {
-        let formattedPackage = getPackage.replace(numeric.tenThousand, "0,000")
-        package.val(formattedPackage)
+        toLocaleString = getPackage.replace(numeric.tenThousand, "0,000")
+        package.val(toLocaleString)
     }
     if (getPackage.match(numeric.lakh)) {
-        let formattedPackage = getPackage.replace(numeric.lakh, "00,000")
-        package.val(formattedPackage)
+        toLocaleString = getPackage.replace(numeric.lakh, "00,000")
+        package.val(toLocaleString)
     }
     if (getPackage.match(numeric.million)) {
-        let formattedPackage = getPackage.replace(numeric.million, ",000,000")
-        package.val(formattedPackage)
+        toLocaleString = getPackage.replace(numeric.million, ",000,000")
+        package.val(toLocaleString)
     }
-    if (formattedPackage == "") {
+    if (updatePackageValue == "") {
         calculation = getSmsRate * getPackage;
     } else {
-        calculation = getSmsRate * formattedPackage;
+        calculation = getSmsRate * updatePackageValue;
     }
     var getPrice = price.val(calculation.toFixed(2).replace(/\.?0+$/, ''));
     var updatePrice = parseInt(getPrice.val());
