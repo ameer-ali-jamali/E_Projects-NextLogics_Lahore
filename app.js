@@ -26,3 +26,11 @@ function update() {
 
 // jquery use multiple events on click
 // $('.text_package_input').on('click mouseleave', calculatePrice);
+
+
+// toLocalString function helps to convert numbers to like a calculator results
+let calculation = getSmsRate * getPackage;
+var getPrice = price.val(calculation.toFixed(2).replace(/\.?0+$/, ''));
+var result = parseInt(getPrice.val());
+var formattedResult = result.toLocaleString();
+price.val(formattedResult)
